@@ -1,0 +1,9 @@
+      <a href="/" className="font-bold text-xl">
+        Your Real Estate
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/properties">Properties</a>
+        <a href="/contact">Contact Us</a>
+      </nav>
