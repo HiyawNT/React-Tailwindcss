@@ -2,11 +2,13 @@ import React from "react";
 import home from "../assets/home.jpg";
 import home2 from "../assets/hom3.jpg";
 import home3 from "../assets/home.jpg";
+
 interface PhotoProps {
   imageSrc: string;
   title: string;
   description: string;
   date: string;
+  readTime?: string; // Added readTime property
 }
 
 const PhotoCard: React.FC<PhotoProps> = ({
@@ -14,6 +16,7 @@ const PhotoCard: React.FC<PhotoProps> = ({
   title,
   description,
   date,
+  readTime, // Added readTime here
 }) => {
   return (
     <div className="rounded overflow-hidden shadow-lg">
@@ -43,13 +46,16 @@ const PhotoCard: React.FC<PhotoProps> = ({
         <a
           href="#"
           className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center"
-        ></a>
+        >
+          {/* Use readTime here if needed */}
+          {readTime && <span>{readTime}</span>}
+        </a>
       </div>
     </div>
   );
 };
 
-const PhotoGallery: React.FC = () => {
+const ImgCards: React.FC = () => {
   return (
     <section className="bg-gray-200">
       <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
@@ -65,6 +71,7 @@ const PhotoGallery: React.FC = () => {
             title="Modernica Appartment"
             description="2 km away from current location"
             date="Discount"
+            readTime="5 min" // Example usage of readTime
           />
           <PhotoCard
             imageSrc={home3}
@@ -78,4 +85,4 @@ const PhotoGallery: React.FC = () => {
   );
 };
 
-export default PhotoGallery;
+export default ImgCards;
