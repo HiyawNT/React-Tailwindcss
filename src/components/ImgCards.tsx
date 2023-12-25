@@ -1,64 +1,92 @@
 import React from "react";
-import Img1 from "../assets/home.jpg";
-import Img2 from "../assets/home2.jpg";
-import Img3 from "../assets/home3.jpg";
-
-interface BlogItem {
-  imageUrl: string; // Correct the type to string
+import home from "../assets/home.jpg";
+import home2 from "../assets/hom3.jpg";
+import home3 from "../assets/home.jpg";
+interface PhotoProps {
+  imageSrc: string;
   title: string;
+  description: string;
+  date: string;
 }
 
-const blogData: BlogItem[] = [
-  {
-    imageUrl: Img1,
-    title: "",
-  },
-  {
-    imageUrl: Img2,
-    title: "",
-  },
-  {
-    imageUrl: Img3,
-    title: "",
-  },
-];
+const PhotoCard: React.FC<PhotoProps> = ({
+  imageSrc,
+  title,
+  description,
+  date,
+  readTime,
+}) => {
+  const svgStyle: React.CSSProperties = {
+    enableBackground: "new 0 0 512 512",
+  };
 
-const ImgCards: React.FC = () => {
   return (
-    <section className="w-full h-full mx-auto px-4 sm:px-6 lg:px-4 mb-12">
-      <article>
-        <h2 className="text-2xl font-extrabold text-white">BLOG</h2>
-        <section className="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 ">
-          {blogData.map((item, index) => (
-            <BlogArticle
-              key={index}
-              imageUrl={item.imageUrl}
-              title={item.title}
-            />
-          ))}
-        </section>
-      </article>
+    <div className="rounded overflow-hidden shadow-lg">
+      <a href="#"></a>
+      <div className="relative">
+        <a href="#">
+          <img className="w-full" src={imageSrc} alt={title} />
+          <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>
+        </a>
+        <a href="#!">
+          <div className="absolute bottom-0 left-0 bg-indigo-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+            Photos
+          </div>
+        </a>
+        <a href="!#">
+          <div className="text-sm absolute top-0 right-0 bg-gray-100 px-4  text-gray-500 rounded-md h-7 w-28 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+            <span className="font-bold">{date}</span>
+          </div>
+        </a>
+      </div>
+      <div className="px-6 py-4">
+        <a
+          href="#"
+          className="font-semibold text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out"
+        >
+          {title}
+        </a>
+        <p className="text-gray-500 text-sm">{description}</p>
+      </div>
+      <div className="px-6 py-4 flex flex-row items-center">
+        <a
+          href="#"
+          className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center"
+        >
+          <span className="ml-1">{readTime}</span>
+        </a>
+      </div>
+    </div>
+  );
+};
+
+const PhotoGallery: React.FC = () => {
+  return (
+    <section className="bg-gray-200">
+      <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+          <PhotoCard
+            imageSrc={home}
+            title="Modernica Appartment"
+            description="2 km away from current location"
+            date="Popular"
+          />
+          <PhotoCard
+            imageSrc={home2}
+            title="Modernica Appartment"
+            description="2 km away from current location"
+            date="Discount"
+          />
+          <PhotoCard
+            imageSrc={home3}
+            title="Modernica Appartment"
+            description="2 km away from current location"
+            date="New Listing"
+          />
+        </div>
+      </div>
     </section>
   );
 };
 
-const BlogArticle: React.FC<BlogItem> = ({ imageUrl, title }) => {
-  return (
-    <article
-      className="relative w-96 h-96 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out"
-      style={{ backgroundImage: `url(${imageUrl})` }}
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
-      <div className="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
-        <h3 className="text-center">
-          <a className="text-white text-2xl font-bold text-center" href="#">
-            <span className="absolute inset-0"></span>
-            {title}
-          </a>
-        </h3>
-      </div>
-    </article>
-  );
-};
-
-export default ImgCards;
+export default PhotoGallery;
