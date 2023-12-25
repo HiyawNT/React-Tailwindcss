@@ -14,12 +14,7 @@ const PhotoCard: React.FC<PhotoProps> = ({
   title,
   description,
   date,
-  readTime,
 }) => {
-  const svgStyle: React.CSSProperties = {
-    enableBackground: "new 0 0 512 512",
-  };
-
   return (
     <div className="rounded overflow-hidden shadow-lg">
       <a href="#"></a>
@@ -52,9 +47,7 @@ const PhotoCard: React.FC<PhotoProps> = ({
         <a
           href="#"
           className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center"
-        >
-          <span className="ml-1">{readTime}</span>
-        </a>
+        ></a>
       </div>
     </div>
   );
