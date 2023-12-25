@@ -1,8 +1,9 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Features from "./components/Feature";
+import ImgCards from "./components/ImgCards";
 import CallToAction from "./components/CallToAction";
 import About from "./components/About";
+import Agents from "./components/Agents";
 import Footer from "./components/Footer";
 import ContactSection from "./components/ContactComponent";
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <CallToAction />
         <About />
         <ContactSection />
-        <Features />
+        <ImgCards />
+        <Agents />
         <Footer />
       </div>
     </>
