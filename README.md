@@ -1,7 +1,8 @@
 This project is created by Vite+react+Tailwindcss
 
 make sure to install react and Tailwind using Vite
-Installation
+            Installation
+            
 cd tailwind+react
 
 npm install
