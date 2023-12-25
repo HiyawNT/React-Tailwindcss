@@ -1,4 +1,4 @@
-import AgentsImg from "../assets/Agents.jpg";
+import AgentsImg from "../assets/agents.jpg";
 
 const Agents = () => {
   return (
